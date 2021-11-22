@@ -10,7 +10,7 @@ function Info() {
       <div>
         <h2> 3. Your information</h2>
       </div>
-      <div className="div3">
+      <div className="infoParagraph">
         <p>{infoData.Paragraph}</p>
       </div>
       <div>
@@ -24,7 +24,7 @@ function Info() {
 
         <br />
       </div>
-      <div className="div3">
+      <div className="infoParagraph">
         <p>{infoData.SecondParagraph}</p>
 
         <p>{infoData.ThirdParagraph}</p>
@@ -35,7 +35,7 @@ function Info() {
       <div>
         <Button name="Apply with mobile BANKID" />
       </div>
-      <div className="div3">
+      <div className="infoParagraph">
         <p>{infoData.FifthParagraph}</p>
         <p>{infoData.SixthParagraph}</p>
       </div>

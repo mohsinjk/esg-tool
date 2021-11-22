@@ -30,7 +30,7 @@ function Finance() {
       <div>
         <h2> 2. Your finances</h2>
       </div>
-      <div className="div2">
+      <div className="financeParagraph">
         <p>{financeData.Paragraph}</p>
       </div>
       <div>
@@ -72,7 +72,7 @@ function Finance() {
 
         <br />
       </div>
-      <div className="div2">
+      <div className="financeParagraph">
         <p>{financeData.SecondParagraph}</p>
       </div>
       <br />
@@ -90,7 +90,7 @@ function Finance() {
       <div>
         <Input label="What other income do you have?" />
       </div>
-      <div className="div2">
+      <div className="financeParagraph">
         <p>{financeData.ThirdParagraph}</p>
       </div>
     </Container>

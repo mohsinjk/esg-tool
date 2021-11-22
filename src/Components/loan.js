@@ -10,7 +10,7 @@ function Loan(props) {
   return (
     <div>
       <div>
-        <div className="div">
+        <div className="loanParagrapgh">
           <p>{loanData.paragraph}</p>
         </div>
         <div>
