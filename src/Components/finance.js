@@ -4,10 +4,10 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Dropdown from "./dropDown";
 import Input from "./textField";
 import financeData from "../store/finance.json";
+import "../styling/finance.css";
 
 function Finance() {
   const things = [
@@ -30,7 +30,7 @@ function Finance() {
       <div>
         <h2> 2. Your finances</h2>
       </div>
-      <div style={{ width: 500 }}>
+      <div className="div2">
         <p>{financeData.Paragraph}</p>
       </div>
       <div>
@@ -72,7 +72,7 @@ function Finance() {
 
         <br />
       </div>
-      <div style={{ display: "flex", width: 500 }}>
+      <div className="div2">
         <p>{financeData.SecondParagraph}</p>
       </div>
       <br />
@@ -90,7 +90,7 @@ function Finance() {
       <div>
         <Input label="What other income do you have?" />
       </div>
-      <div style={{ display: "flex", width: 500 }}>
+      <div className="div2">
         <p>{financeData.ThirdParagraph}</p>
       </div>
     </Container>

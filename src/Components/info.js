@@ -2,6 +2,7 @@ import React from "react";
 import Input from "./textField";
 import Button from "./button";
 import infoData from "../store/info.json";
+import "../styling/info.css";
 
 function Info() {
   return (
@@ -9,7 +10,7 @@ function Info() {
       <div>
         <h2> 3. Your information</h2>
       </div>
-      <div style={{ width: 500 }}>
+      <div className="div3">
         <p>{infoData.Paragraph}</p>
       </div>
       <div>
@@ -23,7 +24,7 @@ function Info() {
 
         <br />
       </div>
-      <div style={{ width: 500 }}>
+      <div className="div3">
         <p>{infoData.SecondParagraph}</p>
 
         <p>{infoData.ThirdParagraph}</p>
@@ -34,7 +35,7 @@ function Info() {
       <div>
         <Button name="Apply with mobile BANKID" />
       </div>
-      <div style={{ width: 500 }}>
+      <div className="div3">
         <p>{infoData.FifthParagraph}</p>
         <p>{infoData.SixthParagraph}</p>
       </div>

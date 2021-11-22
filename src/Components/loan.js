@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
 import loanData from "../store/loan.json";
+import "../styling/loan.css";
 
 function Loan(props) {
   const [value, setValue] = React.useState(10000);
@@ -9,7 +10,7 @@ function Loan(props) {
   return (
     <div>
       <div>
-        <div style={{ width: 500 }}>
+        <div className="div">
           <p>{loanData.paragraph}</p>
         </div>
         <div>
@@ -18,7 +19,7 @@ function Loan(props) {
         <div>
           <p>Select loan amount </p>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="slider">
           <Slider
             sx={{ width: 300 }}
             defaultValue={10000}
@@ -33,7 +34,7 @@ function Loan(props) {
         <div>
           <p>Select repayment period</p>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="slider">
           <Slider
             sx={{ width: 300 }}
             defaultValue={1}
@@ -46,7 +47,7 @@ function Loan(props) {
           <p>{valuepayment}</p>
         </div>
         <br />
-        <div style={{ width: 500 }}>
+        <div>
           <p>{loanData.SecondParagraph}</p>
           <h1>SEK 1,938 / month</h1>
           <p>Total: SEK 139,536</p>
