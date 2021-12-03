@@ -1,5 +1,7 @@
 {
     "Paragraph":"We would like to know a little more about you and your finances. This is so that we can give you the best possible offer.",
     "SecondParagraph":"Housing cost per month such as rent, electricity and heating. Do not count on interest and amortization for mortgages.",
-    "ThirdParagraph":"Income per month that is not salary and can be used for savings, such as capital income."
+    "ThirdParagraph":"Income per month that is not salary and can be used for savings, such as capital income.",
+    "financeHeading":"2. Your finances",
+    "liveHeading":"How do you live?"
 }

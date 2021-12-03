@@ -2,13 +2,13 @@ import React from "react";
 import Input from "./textField";
 import Button from "./button";
 import infoData from "../store/info.json";
-import "../styling/info.css";
+import "../styling/info.scss";
 
 function Info() {
   return (
     <container>
       <div>
-        <h2> 3. Your information</h2>
+        <h2>{infoData.infoHeading}</h2>
       </div>
       <div className="infoParagraph">
         <p>{infoData.Paragraph}</p>

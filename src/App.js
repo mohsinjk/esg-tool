@@ -1,5 +1,5 @@
-import "./App.css";
-import "./index.css";
+import "./App.scss";
+
 import Heading from "../src/Components/heading";
 import Loan from "../src/Components/loan";
 import Finance from "../src/Components/finance";

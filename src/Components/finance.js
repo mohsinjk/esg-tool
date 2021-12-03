@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Dropdown from "./dropDown";
 import Input from "./textField";
 import financeData from "../store/finance.json";
-import "../styling/finance.css";
+import "../styling/finance.scss";
 
 function Finance() {
   const things = [
@@ -28,7 +28,7 @@ function Finance() {
   return (
     <Container>
       <div>
-        <h2> 2. Your finances</h2>
+        <h2> {financeData.financeHeading}</h2>
       </div>
       <div className="financeParagraph">
         <p>{financeData.Paragraph}</p>
@@ -38,7 +38,7 @@ function Finance() {
       </div>
       <br />
       <div>
-        <h3>How do you live?</h3>
+        <h3>{financeData.liveHeading}</h3>
       </div>
       <div>
         <FormControl component="fieldset">

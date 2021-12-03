@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
 import loanData from "../store/loan.json";
-import "../styling/loan.css";
+import "../styling/loan.scss";
+import { useQuery } from "react-query";
 
 function Loan(props) {
   const [value, setValue] = React.useState(10000);
@@ -14,10 +15,10 @@ function Loan(props) {
           <p>{loanData.paragraph}</p>
         </div>
         <div>
-          <h2> 1. Your loan</h2>
+          <h2>{loanData.loanHeading}</h2>
         </div>
         <div>
-          <p>Select loan amount </p>
+          <p>{loanData.selectLoan} </p>
         </div>
         <div className="slider">
           <Slider
@@ -32,7 +33,7 @@ function Loan(props) {
           <p>{value}</p>
         </div>
         <div>
-          <p>Select repayment period</p>
+          <p>{loanData.selectPeriod}</p>
         </div>
         <div className="slider">
           <Slider
@@ -49,15 +50,15 @@ function Loan(props) {
         <br />
         <div>
           <p>{loanData.SecondParagraph}</p>
-          <h1>SEK 1,938 / month</h1>
-          <p>Total: SEK 139,536</p>
+          <h1>{loanData.perMonth}</h1>
+          <p>{loanData.totalAmount}</p>
         </div>
         <br />
         <div>
           <ul>
-            <li>I have turned 20 years old.</li>
-            <li>I earn at least SEK 210,000 / year.</li>
-            <li>No payment remarks.</li>
+            <li>{loanData.firstCondition}</li>
+            <li>{loanData.secondCondition}</li>
+            <li>{loanData.thirdCondition}</li>
           </ul>
         </div>
       </div>

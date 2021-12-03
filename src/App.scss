@@ -1,0 +1,27 @@
+@import "./styling/loan.scss";
+
+$bg-primary: #000c3d;
+$bg: #fff;
+
+.main_div {
+  background: $bg-primary;
+  align-items: center;
+
+  .center_div {
+    max-width: 600px;
+    width: 600px;
+    padding: 30px;
+    background-color: $bg;
+
+    overflow: auto;
+  }
+}
+
+// h1 {
+//   &:hover {
+//     color: #df1620;
+//   }
+// }
+// p {
+//   color: #0636f8;
+// }
