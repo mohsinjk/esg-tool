@@ -20,6 +20,7 @@ function Info() {
   function saveApplication() {
     console.log("save application", state);
     const data = {
+      name: state.name,
       email: state.email,
       phoneNo: state.phoneNo,
       thing: state.thing,
@@ -43,6 +44,16 @@ function Info() {
       <div className="infoParagraph">
         <p>{infoData.Paragraph}</p>
       </div>
+      <div>
+        <TextField
+          name="name"
+          value={state.name}
+          onChange={handleChange}
+          label="Your Name"
+        />
+        <br />
+      </div>
+      <br />
       <div>
         <TextField
           name="email"

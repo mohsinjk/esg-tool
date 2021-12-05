@@ -4,13 +4,15 @@ import Heading from "../src/Components/heading";
 import Loan from "../src/Components/loan";
 import Finance from "../src/Components/finance";
 import Info from "../src/Components/info";
+import Summary from "../src/Components/summary";
 import { Divider } from "@mui/material";
 import { appContext } from "../src/Context/appContext";
 
 function App() {
   const [state, setState] = useState({
-    email: "abc",
-    phoneNo: "123",
+    name: "",
+    email: "",
+    phoneNo: "",
     thing: "",
     employment: "",
     livingStyle: "",
@@ -22,8 +24,8 @@ function App() {
   });
 
   return (
-    <div className="main_div">
-      <div className="center_div">
+    <div className="container">
+      <div className="application">
         <appContext.Provider value={{ state, setState }}>
           <Heading />
           <Loan />
@@ -32,6 +34,9 @@ function App() {
           <Divider>3. Your Information</Divider>
           <Info />
         </appContext.Provider>
+      </div>
+      <div className="summary">
+        <Summary />
       </div>
     </div>
   );

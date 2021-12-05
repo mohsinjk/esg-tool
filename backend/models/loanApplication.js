@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const loanApplicationSchema = new Schema(
   {
+    name: {
+      type: String,
+    },
     email: {
       type: String,
     },
