@@ -1,11 +1,11 @@
 import React from "react";
-import { Container } from "@mui/material";
+import { Container, TextField } from "@mui/material";
 import Radio from "@mui/material/Radio";
+import { Button } from "@mui/material";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Dropdown from "./dropDown";
-import Input from "./textField";
 import financeData from "../store/finance.json";
 import "../styling/finance.scss";
 
@@ -25,6 +25,9 @@ function Finance() {
     { label: "Pensioner" },
     { label: "Not employed" },
   ];
+  function financeInfo() {
+    console.log("Finance");
+  }
   return (
     <Container>
       <div>
@@ -68,7 +71,7 @@ function Finance() {
       </div>
       <br />
       <div>
-        <Input label="What do you have in housing costs?" />
+        <TextField label="What do you have in housing costs?" />
 
         <br />
       </div>
@@ -84,15 +87,18 @@ function Finance() {
       </div>
       <br />
       <div>
-        <Input label="What is your monthly salary before tax?" />
+        <TextField label="What is your monthly salary before tax?" />
       </div>
       <br />
       <div>
-        <Input label="What other income do you have?" />
+        <TextField label="What other income do you have?" />
       </div>
       <div className="financeParagraph">
         <p>{financeData.ThirdParagraph}</p>
       </div>
+      <Button variant="contained" onClick={financeInfo}>
+        Apply
+      </Button>
     </Container>
   );
 }

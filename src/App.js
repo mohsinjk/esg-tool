@@ -12,17 +12,9 @@ function App() {
       <div className="center_div">
         <Heading />
         <Loan />
-        <br />
-        <br />
         <Divider>2. Your finances</Divider>
-        <br />
-        <br />
         <Finance />
-        <br />
-        <br />
         <Divider>3. Your Information</Divider>
-        <br />
-        <br />
         <Info />
       </div>
     </div>

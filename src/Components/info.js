@@ -1,10 +1,26 @@
-import React from "react";
-import Input from "./textField";
-import Button from "./button";
+import React, { useState } from "react";
+import { Button } from "@mui/material";
+import TextField from "@mui/material/TextField";
 import infoData from "../store/info.json";
 import "../styling/info.scss";
 
 function Info() {
+  const [state, setState] = useState({
+    email: "abc",
+    phoneNo: "123",
+  });
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setState({
+      ...state,
+      [evt.target.name]: value,
+    });
+  }
+
+  function saveApplication() {
+    console.log("save application", state);
+  }
   return (
     <container>
       <div>
@@ -14,13 +30,22 @@ function Info() {
         <p>{infoData.Paragraph}</p>
       </div>
       <div>
-        <Input label="E-mail" />
-
+        <TextField
+          name="email"
+          value={state.email}
+          onChange={handleChange}
+          label="E-mail"
+        />
         <br />
       </div>
       <br />
       <div>
-        <Input label="Mobile number" />
+        <TextField
+          name="phoneNo"
+          value={state.phoneNo}
+          onChange={handleChange}
+          label="Mobile number"
+        />
 
         <br />
       </div>
@@ -33,7 +58,9 @@ function Info() {
       </div>
       <br />
       <div>
-        <Button name="Apply with mobile BANKID" />
+        <Button variant="contained" onClick={saveApplication}>
+          Apply with mobile BANKID
+        </Button>
       </div>
       <div className="infoParagraph">
         <p>{infoData.FifthParagraph}</p>

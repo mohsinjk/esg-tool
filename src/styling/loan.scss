@@ -1,10 +1,13 @@
-.loanParagrapgh {
+.loan {
   p {
     color: rgb(0, 0, 0);
   }
   width: 500px;
-}
-.slider {
-  display: flex;
-  align-items: center;
+  .slider {
+    display: flex;
+    align-items: center;
+    .value {
+      padding-left: 20px;
+    }
+  }
 }
