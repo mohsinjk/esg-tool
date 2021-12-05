@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import infoData from "../store/info.json";
 import "../styling/info.scss";
 import { appContext } from "../Context/appContext";
+import axios from "axios";
 
 function Info() {
   const { state, setState } = useContext(appContext);
@@ -18,6 +19,21 @@ function Info() {
 
   function saveApplication() {
     console.log("save application", state);
+    const data = {
+      email: state.email,
+      phoneNo: state.phoneNo,
+      thing: state.thing,
+      employment: state.employment,
+      livingStyle: state.livingStyle,
+      salary: state.salary,
+      otherIncome: state.otherIncome,
+      housingCost: state.housingCost,
+      amount: state.amount,
+      period: state.period,
+    };
+    axios
+      .post("http://localhost:8000/api/loanApplications", data)
+      .then((res) => console.log(res.data));
   }
   return (
     <div>
