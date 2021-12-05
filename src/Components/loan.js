@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Slider from "@mui/material/Slider";
-import { Button } from "@mui/material";
 import loanData from "../store/loan.json";
 import "../styling/loan.scss";
+import { appContext } from "../Context/appContext";
 
 function Loan() {
-  const [state, setState] = useState({
-    amount: 10000,
-    period: 1,
-  });
+  const { state, setState } = useContext(appContext);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -18,9 +15,6 @@ function Loan() {
     });
   }
 
-  function loanType() {
-    console.log("Loan type", state);
-  }
   return (
     <div className="loan">
       <div>
@@ -73,9 +67,6 @@ function Loan() {
           <li>{loanData.thirdCondition}</li>
         </ul>
       </div>
-      <Button variant="contained" onClick={loanType}>
-        Apply
-      </Button>
     </div>
   );
 }

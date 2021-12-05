@@ -1,30 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Select, TextField } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Radio from "@mui/material/Radio";
-import { Button } from "@mui/material";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
 import financeData from "../store/finance.json";
 import "../styling/finance.scss";
+import { appContext } from "../Context/appContext";
 
 function Finance() {
   const things = [
-    { label: "Car", value: 1 },
-    { label: "MC", value: 2 },
-    { label: "Boat", value: 3 },
-    { label: "Collect loans", value: 4 },
-    { label: "other Consumption", value: 5 },
+    { label: "Car", value: "car" },
+    { label: "Motor Cycle", value: "mc" },
+    { label: "Boat", value: "boat" },
+    { label: "Collect loans", value: "collectLoans" },
+    { label: "other Consumption", value: "otherComsunptions" },
   ];
   const employments = [
-    { label: "Employee", value: 1 },
-    { label: "Temporarily hired", value: 2 },
-    { label: "Self-employed", value: 3 },
-    { label: "Student", value: 4 },
-    { label: "Pensioner", value: 5 },
-    { label: "Not employed", value: 6 },
+    { label: "Employee", value: "employee" },
+    { label: "Temporarily hired", value: "temporarilyHired" },
+    { label: "Self-employed", value: "selfEmployed" },
+    { label: "Student", value: "student" },
+    { label: "Pensioner", value: "pensioner" },
+    { label: "Not employed", value: "notEmployed" },
   ];
   const livingStyles = [
     { label: "I live in a condominium", value: 1 },
@@ -33,14 +32,7 @@ function Finance() {
     { label: "I have another accommodation", value: 4 },
   ];
 
-  const [state, setState] = useState({
-    thing: "",
-    employment: "",
-    livingStyle: "",
-    salary: 0,
-    otherIncome: 0,
-    housingCost: 0,
-  });
+  const { state, setState } = useContext(appContext);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -50,9 +42,6 @@ function Finance() {
     });
   }
 
-  function financeInfo() {
-    console.log("Finance", state);
-  }
   return (
     <div>
       <div>
@@ -150,9 +139,6 @@ function Finance() {
       <div className="financeParagraph">
         <p>{financeData.ThirdParagraph}</p>
       </div>
-      <Button variant="contained" onClick={financeInfo}>
-        Apply
-      </Button>
     </div>
   );
 }
