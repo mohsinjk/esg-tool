@@ -19,17 +19,24 @@ function Finance() {
     { label: "other Consumption", value: 5 },
   ];
   const employments = [
-    { label: "Employee" },
-    { label: "Temporarily hired" },
-    { label: "Self-employed" },
-    { label: "Student" },
-    { label: "Pensioner" },
-    { label: "Not employed" },
+    { label: "Employee", value: 1 },
+    { label: "Temporarily hired", value: 2 },
+    { label: "Self-employed", value: 3 },
+    { label: "Student", value: 4 },
+    { label: "Pensioner", value: 5 },
+    { label: "Not employed", value: 6 },
   ];
+  const livingStyles = [
+    { label: "I live in a condominium", value: 1 },
+    { label: "I live in a tenancy", value: 2 },
+    { label: "I live in a villa", value: 3 },
+    { label: "I have another accommodation", value: 4 },
+  ];
+
   const [state, setState] = useState({
     thing: "",
     employment: "",
-    live: "",
+    livingStyle: "",
     salary: 0,
     otherIncome: 0,
     housingCost: 0,
@@ -80,30 +87,17 @@ function Finance() {
         <h3>{financeData.liveHeading}</h3>
       </div>
       <div>
-        <FormControl component="fieldset">
-          <RadioGroup name="radio-buttons-group">
-            <FormControlLabel
-              value="fisrt"
-              control={<Radio />}
-              label="I live in a condominium"
-            />
-            <FormControlLabel
-              value="second"
-              control={<Radio />}
-              label="I live in a tenancy"
-            />
-            <FormControlLabel
-              value="third"
-              control={<Radio />}
-              label="I live in a villa"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Radio />}
-              label="I have another accommodation"
-            />
-          </RadioGroup>
-        </FormControl>
+        <RadioGroup onChange={handleChange} name="livingStyle">
+          {livingStyles?.map((i) => {
+            return (
+              <FormControlLabel
+                value={i.value}
+                control={<Radio />}
+                label={i.label}
+              />
+            );
+          })}
+        </RadioGroup>
       </div>
       <br />
       <div>
@@ -120,7 +114,22 @@ function Finance() {
       </div>
       <br />
       <div>
-        <Select options={employments} label={"What employement do you have?"} />
+        <Select
+          labelId="demo-simple-select-label"
+          id="employment"
+          value={state.employment}
+          name="employment"
+          onChange={handleChange}
+          label="What employement do you have?"
+        >
+          {employments?.map((i) => {
+            return (
+              <MenuItem key={i.value} value={i.value}>
+                {i.label ?? i.value}
+              </MenuItem>
+            );
+          })}
+        </Select>
       </div>
       <br />
       <div>
