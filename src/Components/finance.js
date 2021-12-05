@@ -1,23 +1,24 @@
-import React from "react";
-import { Container, TextField } from "@mui/material";
+import React, { useState } from "react";
+import { Select, TextField } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
 import Radio from "@mui/material/Radio";
 import { Button } from "@mui/material";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import Dropdown from "./dropDown";
 import financeData from "../store/finance.json";
 import "../styling/finance.scss";
 
 function Finance() {
   const things = [
-    { label: "Car" },
-    { label: "MC" },
-    { label: "Boat" },
-    { label: "Collect loans" },
-    { label: "other Consumption" },
+    { label: "Car", value: 1 },
+    { label: "MC", value: 2 },
+    { label: "Boat", value: 3 },
+    { label: "Collect loans", value: 4 },
+    { label: "other Consumption", value: 5 },
   ];
-  const employment = [
+  const employments = [
     { label: "Employee" },
     { label: "Temporarily hired" },
     { label: "Self-employed" },
@@ -25,11 +26,28 @@ function Finance() {
     { label: "Pensioner" },
     { label: "Not employed" },
   ];
+  const [state, setState] = useState({
+    thing: "",
+    employment: "",
+    live: "",
+    salary: 0,
+    otherIncome: 0,
+    housingCost: 0,
+  });
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setState({
+      ...state,
+      [evt.target.name]: value,
+    });
+  }
+
   function financeInfo() {
-    console.log("Finance");
+    console.log("Finance", state);
   }
   return (
-    <Container>
+    <div>
       <div>
         <h2> {financeData.financeHeading}</h2>
       </div>
@@ -37,7 +55,25 @@ function Finance() {
         <p>{financeData.Paragraph}</p>
       </div>
       <div>
-        <Dropdown options={things} label={"What do you need to borrow  for?"} />
+        <InputLabel id="demo-simple-select-label">
+          What do you need to borrow for?
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="thing"
+          value={state.thing}
+          name="thing"
+          onChange={handleChange}
+          label="What do you need to borrow  for?"
+        >
+          {things?.map((i) => {
+            return (
+              <MenuItem key={i.value} value={i.value}>
+                {i.label ?? i.value}
+              </MenuItem>
+            );
+          })}
+        </Select>
       </div>
       <br />
       <div>
@@ -71,7 +107,11 @@ function Finance() {
       </div>
       <br />
       <div>
-        <TextField label="What do you have in housing costs?" />
+        <TextField
+          name="housingCost"
+          onChange={handleChange}
+          label="What do you have in housing costs?"
+        />
 
         <br />
       </div>
@@ -80,18 +120,23 @@ function Finance() {
       </div>
       <br />
       <div>
-        <Dropdown
-          options={employment}
-          label={"What employement do you have?"}
+        <Select options={employments} label={"What employement do you have?"} />
+      </div>
+      <br />
+      <div>
+        <TextField
+          name="salary"
+          onChange={handleChange}
+          label="What is your monthly salary before tax?"
         />
       </div>
       <br />
       <div>
-        <TextField label="What is your monthly salary before tax?" />
-      </div>
-      <br />
-      <div>
-        <TextField label="What other income do you have?" />
+        <TextField
+          name="otherIncome"
+          onChange={handleChange}
+          label="What other income do you have?"
+        />
       </div>
       <div className="financeParagraph">
         <p>{financeData.ThirdParagraph}</p>
@@ -99,7 +144,7 @@ function Finance() {
       <Button variant="contained" onClick={financeInfo}>
         Apply
       </Button>
-    </Container>
+    </div>
   );
 }
 export default Finance;

@@ -22,7 +22,7 @@ function Info() {
     console.log("save application", state);
   }
   return (
-    <container>
+    <div>
       <div>
         <h2>{infoData.infoHeading}</h2>
       </div>
@@ -66,7 +66,7 @@ function Info() {
         <p>{infoData.FifthParagraph}</p>
         <p>{infoData.SixthParagraph}</p>
       </div>
-    </container>
+    </div>
   );
 }
 export default Info;
