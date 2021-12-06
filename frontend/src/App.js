@@ -21,6 +21,8 @@ function App() {
     housingCost: 0,
     amount: 10000,
     period: 1,
+    currency: "Kr",
+    year: "years",
   });
 
   return (
@@ -35,7 +37,7 @@ function App() {
           <Info />
         </appContext.Provider>
       </div>
-      <div className="summary">
+      <div>
         <appContext.Provider value={{ state, setState }}>
           <Summary />
         </appContext.Provider>

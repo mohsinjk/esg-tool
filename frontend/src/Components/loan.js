@@ -36,7 +36,10 @@ function Loan() {
           onChange={handleChange}
           name="amount"
         />
-        <div className="value">{state.amount}</div>
+        <div className="value">
+          {state.amount}
+          {state.currency}
+        </div>
       </div>
       <div>
         <p>{loanData.selectPeriod}</p>
@@ -51,7 +54,10 @@ function Loan() {
           onChange={handleChange}
           name="period"
         />
-        <div className="value">{state.period}</div>
+        <div className="value">
+          {state.period}
+          {state.year}
+        </div>
       </div>
       <br />
       <div>

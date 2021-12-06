@@ -1,0 +1,24 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  .name {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 15px;
+  }
+  .row-box {
+    display: flex;
+    justify-content: space-around;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+  }
+  .bold {
+    font-weight: bold;
+    font-size: 40px;
+  }
+}

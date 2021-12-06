@@ -17,6 +17,7 @@ var upload = multer({ storage: storage });
 router.post("/loanApplications", async (req, res, next) => {
   try {
     const {
+      name,
       email,
       phoneNo,
       thing,
@@ -31,6 +32,7 @@ router.post("/loanApplications", async (req, res, next) => {
 
     const loanApplication = new LoanApplication();
 
+    if (name) loanApplication.name = name;
     if (email) loanApplication.email = email;
     if (phoneNo) loanApplication.phoneNo = phoneNo;
     if (thing) loanApplication.thing = thing;
@@ -66,6 +68,7 @@ router.put("/loanApplications/:id", async (req, res, next) => {
     const contact = await Contact.findById(req.params.id);
 
     const {
+      name,
       email,
       phoneNo,
       thing,
@@ -78,6 +81,7 @@ router.put("/loanApplications/:id", async (req, res, next) => {
       period,
     } = req.body;
 
+    if (name) loanApplication.name = name;
     if (email) loanApplication.email = email;
     if (phoneNo) loanApplication.phoneNo = phoneNo;
     if (thing) loanApplication.thing = thing;
