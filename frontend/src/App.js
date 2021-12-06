@@ -36,7 +36,9 @@ function App() {
         </appContext.Provider>
       </div>
       <div className="summary">
-        <Summary />
+        <appContext.Provider value={{ state, setState }}>
+          <Summary />
+        </appContext.Provider>
       </div>
     </div>
   );

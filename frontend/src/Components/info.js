@@ -16,26 +16,6 @@ function Info() {
       [evt.target.name]: value,
     });
   }
-
-  function saveApplication() {
-    console.log("save application", state);
-    const data = {
-      name: state.name,
-      email: state.email,
-      phoneNo: state.phoneNo,
-      thing: state.thing,
-      employment: state.employment,
-      livingStyle: state.livingStyle,
-      salary: state.salary,
-      otherIncome: state.otherIncome,
-      housingCost: state.housingCost,
-      amount: state.amount,
-      period: state.period,
-    };
-    axios
-      .post("http://localhost:8000/api/loanApplications", data)
-      .then((res) => console.log(res.data));
-  }
   return (
     <div>
       <div>
@@ -82,11 +62,6 @@ function Info() {
         <p>{infoData.FourthParagraph}</p>
       </div>
       <br />
-      <div>
-        <Button variant="contained" onClick={saveApplication}>
-          Apply with mobile BANKID
-        </Button>
-      </div>
       <div className="infoParagraph">
         <p>{infoData.FifthParagraph}</p>
         <p>{infoData.SixthParagraph}</p>

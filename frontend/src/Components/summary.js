@@ -8,6 +8,45 @@ import axios from "axios";
 
 function Summary() {
   const { state, setState } = useContext(appContext);
-  return <div>Summary</div>;
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setState({
+      ...state,
+      [evt.target.name]: value,
+    });
+  }
+
+  function saveApplication() {
+    console.log("save application", state);
+    const data = {
+      name: state.name,
+      email: state.email,
+      phoneNo: state.phoneNo,
+      thing: state.thing,
+      employment: state.employment,
+      livingStyle: state.livingStyle,
+      salary: state.salary,
+      otherIncome: state.otherIncome,
+      housingCost: state.housingCost,
+      amount: state.amount,
+      period: state.period,
+    };
+    axios
+      .post("http://localhost:8000/api/loanApplications", data)
+      .then((res) => console.log(res.data));
+  }
+  return (
+    <div>
+      <div>{state.name}</div>
+      <div>{state.amount}</div>
+      <div>{state.period}</div>
+      <div>
+        <Button variant="contained" onClick={saveApplication}>
+          Apply with mobile BANKID
+        </Button>
+      </div>
+    </div>
+  );
 }
 export default Summary;
