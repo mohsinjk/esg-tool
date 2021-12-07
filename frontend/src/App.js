@@ -10,6 +10,7 @@ import { Divider } from "@mui/material";
 import { appContext } from "../src/Context/appContext";
 import { EditApplication } from "./Pages/editApplication";
 import { ApplicationList } from "./Pages/applicationList";
+import { DetailApplication } from "./Pages/detailApplication";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route exact path="/edit">
           <EditApplication />
+        </Route>
+        <Route exact path="/detail/:id">
+          <DetailApplication />
         </Route>
       </Switch>
     </BrowserRouter>

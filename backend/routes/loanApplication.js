@@ -118,6 +118,7 @@ router.get("/loanApplications", async (req, res, next) => {
 
 router.get("/loanApplications/:id", async (req, res, next) => {
   try {
+    console.log(req.params.id);
     return res.json({
       contact: await Contact.findById(req.params.id),
     });

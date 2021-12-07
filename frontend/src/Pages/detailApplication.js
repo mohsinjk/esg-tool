@@ -1,4 +1,4 @@
-// import "./App.scss";
+import "./editApplication";
 import React, { useEffect, useState } from "react";
 import Heading from "../Components/heading";
 import Loan from "../Components/loan";
@@ -7,14 +7,15 @@ import Info from "../Components/info";
 import Summary from "../Components/summary";
 import { Divider } from "@mui/material";
 import { appContext } from "../Context/appContext";
+import { Route, Switch, Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
-import { Route, Switch, Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 
-function ApplicationList() {
-  const [state, setState] = useState([]);
-
+function DetailApplication() {
+  const [state, setState] = useState();
+  const params = useParams();
+  console.log(params.id);
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
     {
@@ -36,31 +37,24 @@ function ApplicationList() {
       width: 200,
       editable: true,
     },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 200,
-      editable: true,
-    },
   ];
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/loanApplications")
-      .then((res) =>
-        setState(res.data.contacts.map((el) => ({ ...el, id: el._id })))
-      );
+      .get("http://localhost:8000/api/loanApplications/" + params.id)
+      .then((res) => console.log(res.data));
   }, []);
   console.log(state);
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
+      {/* <DataGrid
         rows={state}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-      />
+        pageSize={1}
+        rowsPerPageOptions={[1]}
+      /> */}
     </div>
   );
 }
-export { ApplicationList };
+
+export { DetailApplication };
