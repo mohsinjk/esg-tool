@@ -42,17 +42,17 @@ function DetailApplication() {
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/loanApplications/" + params.id)
-      .then((res) => console.log(res.data));
+      .then((res) => setState(res.data.contacts));
   }, []);
   console.log(state);
   return (
     <div style={{ height: 400, width: "100%" }}>
-      {/* <DataGrid
+      <DataGrid
         rows={state}
         columns={columns}
         pageSize={1}
         rowsPerPageOptions={[1]}
-      /> */}
+      />
     </div>
   );
 }
