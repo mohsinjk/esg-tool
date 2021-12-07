@@ -1,4 +1,4 @@
-import "./App.scss";
+// import "./App.scss";
 import React, { useState } from "react";
 import Heading from "../Components/heading";
 import Loan from "../Components/loan";
@@ -7,6 +7,8 @@ import Info from "../Components/info";
 import Summary from "../Components/summary";
 import { Divider } from "@mui/material";
 import { appContext } from "../Context/appContext";
+import { Button } from "@mui/material";
+import { Route, Switch, Link } from "react-router-dom";
 
 function ApplicationList() {
   const [state, setState] = useState({
@@ -25,25 +27,7 @@ function ApplicationList() {
     year: "years",
   });
 
-  return (
-    <div className="container">
-      <div className="application">
-        <appContext.Provider value={{ state, setState }}>
-          <Heading />
-          <Loan />
-          <Divider>2. Your finances</Divider>
-          <Finance />
-          <Divider>3. Your Information</Divider>
-          <Info />
-        </appContext.Provider>
-      </div>
-      <div>
-        <appContext.Provider value={{ state, setState }}>
-          <Summary />
-        </appContext.Provider>
-      </div>
-    </div>
-  );
+  return <div className="container">List Component</div>;
 }
 
 export { ApplicationList };
