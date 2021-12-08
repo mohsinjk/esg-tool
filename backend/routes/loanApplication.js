@@ -56,7 +56,7 @@ router.post("/loanApplications", async (req, res, next) => {
 router.delete("/loanApplications/:id", async (req, res, next) => {
   try {
     res.json({
-      contact: await Contact.deleteOne({ _id: req.params.id }),
+      contact: await LoanApplication.deleteOne({ _id: req.params.id }),
     });
   } catch (error) {
     console.log(error);

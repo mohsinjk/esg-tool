@@ -5,11 +5,12 @@ import infoData from "../store/info.json";
 import "../styling/summary.scss";
 import { appContext } from "../Context/appContext";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function Summary() {
   const { state, setState } = useContext(appContext);
   const params = useParams();
+  const history = useHistory();
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -40,13 +41,23 @@ function Summary() {
       axios
         .put("http://localhost:8000/api/loanApplications/" + params.id, data)
         .then((res) => console.log(res.data));
-      console.log("update", params.id);
     } else {
       axios
         .post("http://localhost:8000/api/loanApplications", data)
         .then((res) => console.log(res.data));
     }
   }
+
+  function deleteApplication() {
+    console.log("delete application", state);
+
+    axios
+      .delete("http://localhost:8000/api/loanApplications/" + params.id)
+      .then((res) => console.log(res.data));
+
+    history.push("/");
+  }
+
   return (
     <div className="summary">
       <div className="name">{state.name}</div>
@@ -66,11 +77,21 @@ function Summary() {
           </div>
         </div>
       </div>
+
       <div className="button">
         <Button variant="contained" onClick={saveApplication}>
           Apply with mobile BANKID
         </Button>
       </div>
+      {params.id ? (
+        <div className="delete">
+          <Button variant="outlined" onClick={deleteApplication}>
+            Delete
+          </Button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

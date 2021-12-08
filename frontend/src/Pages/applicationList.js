@@ -8,7 +8,6 @@ function ApplicationList() {
   const history = useHistory();
 
   const handleRowClick = (e) => {
-    console.log(e);
     history.push("/edit/" + e.id);
   };
 
