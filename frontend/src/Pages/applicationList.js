@@ -1,19 +1,17 @@
 // import "./App.scss";
 import React, { useEffect, useState } from "react";
-import Heading from "../Components/heading";
-import Loan from "../Components/loan";
-import Finance from "../Components/finance";
-import Info from "../Components/info";
-import Summary from "../Components/summary";
-import { Divider } from "@mui/material";
-import { appContext } from "../Context/appContext";
-import { Button } from "@mui/material";
-import { Route, Switch, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 
 function ApplicationList() {
   const [state, setState] = useState([]);
+  const history = useHistory();
+
+  const handleRowClick = (e) => {
+    console.log(e);
+    history.push("/detail/" + e.id);
+  };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
@@ -21,26 +19,26 @@ function ApplicationList() {
       field: "name",
       headerName: "Name",
       width: 200,
-      editable: true,
+      editable: false,
     },
     {
       field: "amount",
       headerName: "Total Amount",
       width: 200,
-      editable: true,
+      editable: false,
     },
     {
       field: "period",
       headerName: "Period",
       type: "number",
       width: 200,
-      editable: true,
+      editable: false,
     },
     {
       field: "actions",
       headerName: "Actions",
       width: 200,
-      editable: true,
+      editable: false,
     },
   ];
 
@@ -59,6 +57,8 @@ function ApplicationList() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        disableSelectionOnClick={true}
+        onRowClick={handleRowClick}
       />
     </div>
   );

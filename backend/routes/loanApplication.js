@@ -65,7 +65,7 @@ router.delete("/loanApplications/:id", async (req, res, next) => {
 
 router.put("/loanApplications/:id", async (req, res, next) => {
   try {
-    const contact = await Contact.findById(req.params.id);
+    const contact = await LoanApplication.findById(req.params.id);
 
     const {
       name,
@@ -118,9 +118,9 @@ router.get("/loanApplications", async (req, res, next) => {
 
 router.get("/loanApplications/:id", async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    console.log("my id ", req.params.id);
     return res.json({
-      contact: await Contact.findById(req.params.id),
+      contact: await LoanApplication.findById(req.params.id),
     });
   } catch (error) {}
 });

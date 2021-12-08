@@ -23,7 +23,7 @@ function App() {
           <EditApplication />
         </Route>
         <Route exact path="/detail/:id">
-          <DetailApplication />
+          <EditApplication />
         </Route>
       </Switch>
     </BrowserRouter>
