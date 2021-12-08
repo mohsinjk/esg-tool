@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import infoData from "../store/info.json";
 import "../styling/summary.scss";
 import { appContext } from "../Context/appContext";
 import axios from "axios";
@@ -40,11 +38,17 @@ function Summary() {
     if (params.id) {
       axios
         .put("http://localhost:8000/api/loanApplications/" + params.id, data)
-        .then((res) => console.log(res.data));
+        .then((res) => {
+          console.log(res.data);
+          history.push("/");
+        });
     } else {
       axios
         .post("http://localhost:8000/api/loanApplications", data)
-        .then((res) => console.log(res.data));
+        .then((res) => {
+          console.log(res.data);
+          history.push("/");
+        });
     }
   }
 
