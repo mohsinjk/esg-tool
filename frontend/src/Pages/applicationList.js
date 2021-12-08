@@ -1,5 +1,4 @@
-// import "./App.scss";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
@@ -10,7 +9,7 @@ function ApplicationList() {
 
   const handleRowClick = (e) => {
     console.log(e);
-    history.push("/detail/" + e.id);
+    history.push("/edit/" + e.id);
   };
 
   const columns = [
@@ -42,14 +41,12 @@ function ApplicationList() {
     },
   ];
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/loanApplications")
-      .then((res) =>
-        setState(res.data.contacts.map((el) => ({ ...el, id: el._id })))
-      );
-  }, []);
-  console.log(state);
+  axios
+    .get("http://localhost:8000/api/loanApplications")
+    .then((res) =>
+      setState(res.data.contacts.map((el) => ({ ...el, id: el._id })))
+    );
+
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid

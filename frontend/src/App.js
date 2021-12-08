@@ -1,16 +1,8 @@
 import "./App.scss";
-import React, { Fragment, useState } from "react";
-import { Switch, Route, Routes, BrowserRouter } from "react-router-dom";
-import Heading from "../src/Components/heading";
-import Loan from "../src/Components/loan";
-import Finance from "../src/Components/finance";
-import Info from "../src/Components/info";
-import Summary from "../src/Components/summary";
-import { Divider } from "@mui/material";
-import { appContext } from "../src/Context/appContext";
+import React from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { EditApplication } from "./Pages/editApplication";
 import { ApplicationList } from "./Pages/applicationList";
-import { DetailApplication } from "./Pages/detailApplication";
 
 function App() {
   return (
@@ -19,10 +11,10 @@ function App() {
         <Route exact path="/">
           <ApplicationList />
         </Route>
-        <Route exact path="/edit">
+        <Route exact path="/add">
           <EditApplication />
         </Route>
-        <Route exact path="/detail/:id">
+        <Route exact path="/edit/:id">
           <EditApplication />
         </Route>
       </Switch>
