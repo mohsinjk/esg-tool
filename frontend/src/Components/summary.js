@@ -5,9 +5,11 @@ import infoData from "../store/info.json";
 import "../styling/summary.scss";
 import { appContext } from "../Context/appContext";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Summary() {
   const { state, setState } = useContext(appContext);
+  const params = useParams();
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -34,9 +36,16 @@ function Summary() {
       currency: state.currency,
       year: state.year,
     };
-    axios
-      .post("http://localhost:8000/api/loanApplications", data)
-      .then((res) => console.log(res.data));
+    if (params.id) {
+      axios
+        .put("http://localhost:8000/api/loanApplications/" + params.id, data)
+        .then((res) => console.log(res.data));
+      console.log("update", params.id);
+    } else {
+      axios
+        .post("http://localhost:8000/api/loanApplications", data)
+        .then((res) => console.log(res.data));
+    }
   }
   return (
     <div className="summary">

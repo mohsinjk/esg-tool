@@ -65,7 +65,7 @@ router.delete("/loanApplications/:id", async (req, res, next) => {
 
 router.put("/loanApplications/:id", async (req, res, next) => {
   try {
-    const contact = await LoanApplication.findById(req.params.id);
+    const loanApplication = await LoanApplication.findById(req.params.id);
 
     const {
       name,
@@ -95,7 +95,7 @@ router.put("/loanApplications/:id", async (req, res, next) => {
     if (period) loanApplication.period = period;
 
     return res.json({
-      contact: await contact.save(),
+      contact: await loanApplication.save(),
     });
   } catch (error) {}
 });

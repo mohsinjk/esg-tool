@@ -12,7 +12,6 @@ import axios from "axios";
 
 function EditApplication() {
   const params = useParams();
-  console.log(params.id);
 
   const [state, setState] = useState({
     name: "",
