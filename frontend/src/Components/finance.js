@@ -76,7 +76,11 @@ function Finance() {
         <h3>{financeData.liveHeading}</h3>
       </div>
       <div>
-        <RadioGroup onChange={handleChange} name="livingStyle">
+        <RadioGroup
+          onChange={handleChange}
+          value={state.livingStyle}
+          name="livingStyle"
+        >
           {livingStyles?.map((i) => {
             return (
               <FormControlLabel
@@ -92,6 +96,7 @@ function Finance() {
       <div>
         <TextField
           name="housingCost"
+          value={state.housingCost}
           onChange={handleChange}
           label="What do you have in housing costs?"
         />
@@ -124,6 +129,7 @@ function Finance() {
       <div>
         <TextField
           name="salary"
+          value={state.salary}
           onChange={handleChange}
           label="What is your monthly salary before tax?"
         />
@@ -132,6 +138,7 @@ function Finance() {
       <div>
         <TextField
           name="otherIncome"
+          value={state.otherIncome}
           onChange={handleChange}
           label="What other income do you have?"
         />

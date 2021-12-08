@@ -111,7 +111,7 @@ router.get("/loanApplications", async (req, res, next) => {
     const results = await LoanApplication.find(mongoQuery);
 
     return res.json({
-      contacts: results,
+      loanApplications: results,
     });
   } catch (error) {}
 });
@@ -120,7 +120,7 @@ router.get("/loanApplications/:id", async (req, res, next) => {
   try {
     console.log("my id ", req.params.id);
     return res.json({
-      contact: await LoanApplication.findById(req.params.id),
+      loanApplication: await LoanApplication.findById(req.params.id),
     });
   } catch (error) {}
 });

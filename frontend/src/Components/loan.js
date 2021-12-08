@@ -35,6 +35,7 @@ function Loan() {
           max={350000}
           onChange={handleChange}
           name="amount"
+          value={state.amount}
         />
         <div className="value">
           {state.amount}
@@ -53,6 +54,7 @@ function Loan() {
           max={10}
           onChange={handleChange}
           name="period"
+          value={state.period}
         />
         <div className="value">
           {state.period}
