@@ -10,7 +10,7 @@ info:
 paths:
   /esg/{id}:
     get:
-      summary: get an item
+      summary: get item
       parameters:
         - name: id
           in: path
@@ -77,6 +77,8 @@ components:
         - SUST_AREA_TP
       properties:
         AR_ID: 
+          type: string
+        AR_DEECRIPTION: 
           type: string
         AR_SEB_SUST_PROD_TP:
           $ref: '#/components/schemas/AR_SEB_SUST_PROD_TP'
