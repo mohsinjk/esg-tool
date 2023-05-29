@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 import { useHistory } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
@@ -8,55 +10,70 @@ function ApplicationList() {
   const history = useHistory();
 
   const handleRowClick = (e) => {
-    history.push("/edit/" + e.id);
+    history.push("/esg/" + e.id);
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 200 },
+    { field: "_id", headerName: "#", width: 200 },
     {
-      field: "name",
-      headerName: "Name",
+      field: "AR_ID",
+      headerName: "Arrangment id",
       width: 200,
       editable: false,
     },
     {
-      field: "amount",
-      headerName: "Total Amount",
+      field: "AR_SEB_SUST_PROD_TP",
+      headerName: "SEB defined sustainable product types",
+      width: 400,
+      editable: false,
+    },
+    {
+      field: "SUST_AREA_TP",
+      headerName: "Sustainable area type",
       width: 200,
       editable: false,
     },
     {
-      field: "period",
-      headerName: "Period",
-      type: "number",
+      field: "SUST_APPROVAL_AUTHORITY_NAME",
+      headerName: "Approval authority name",
       width: 200,
       editable: false,
     },
     {
-      field: "actions",
-      headerName: "Actions",
+      field: "SUST_APPROVAL_AUTHORITY_DATE",
+      headerName: "Approval authority date",
       width: 200,
       editable: false,
     },
   ];
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/loanApplications")
+      .get("http://localhost:8000/api/esgApplications")
       .then((res) =>
-        setState(res.data.loanApplications.map((el) => ({ ...el, id: el._id })))
+        setState(res.data.esgApplications.map((el) => ({ ...el, id: el._id })))
       );
   }, []);
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={state}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        disableSelectionOnClick={true}
-        onRowClick={handleRowClick}
-      />
-    </div>
+
+    <Card>
+      <Card.Header as="h2">ESG Assessment Tool</Card.Header>
+      <Card.Body>
+        <Card.Text>
+          <div style={{ height: 400, width: "100%" }}>
+            <DataGrid
+              rows={state}
+              columns={columns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              disableSelectionOnClick={true}
+              onRowClick={handleRowClick}
+            />
+          </div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+
   );
 }
 export { ApplicationList };
+

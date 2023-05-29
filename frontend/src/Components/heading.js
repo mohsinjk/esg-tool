@@ -6,7 +6,7 @@ import { Route, Switch, Link } from "react-router-dom";
 function heading(props) {
   return (
     <div>
-      <h1>Apply now - message immediately</h1>
+      <h1>ESG Assessment tool</h1>
     </div>
   );
 }

@@ -1,0 +1,157 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/mohsinjk-org/BffESGAssessmentTool/1.0.0
+info:
+  description: ESG Assessment tool API
+  version: "1.0.0"
+  title: ESG Assessment tool API
+paths:
+  /esg/{id}:
+    get:
+      summary: get an item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ESG_Data'
+    put:
+      summary: update item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ESG_Data'
+      responses:
+        '200':
+          description: Success
+    delete:
+      summary: delete item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+  /esg:
+    post:
+      summary: create item
+      description: Adds an item to the ESG system
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ESG_Data'
+        description: Inventory item to add
+components:
+  schemas:
+    ESG_Data:
+      required:
+        - AR_ID
+        - AR_SEB_SUST_PROD_TP
+        - SUST_AREA_TP
+      properties:
+        AR_ID: 
+          type: string
+        AR_SEB_SUST_PROD_TP:
+          $ref: '#/components/schemas/AR_SEB_SUST_PROD_TP'
+        SUST_AREA_TP:
+          $ref: '#/components/schemas/SUST_AREA_TP'          
+        SUST_APPROVAL_AUTHORITY_NAME:
+          $ref: '#/components/schemas/SUST_APPROVAL_AUTHORITY_NAME' 
+        SUST_APPROVAL_AUTHORITY_DATE:
+          type: string
+        SEB_GBF_VERSION_TP:
+          $ref: '#/components/schemas/SEB_GBF_VERSION_TP' 
+        SEB_GBF_ASSET_CNTRY_CODE:
+          type: string
+        SEB_GBF_FINANCING_TP:
+          $ref: '#/components/schemas/SEB_GBF_FINANCING_TP' 
+        SEB_GBF_CATEGORY_TP:
+          $ref: '#/components/schemas/SEB_GBF_CATEGORY_TP'       
+      type: object
+      description: ESG data attributes for arrangement level 
+    AR_SEB_SUST_PROD_TP:
+      enum:
+        - Taxonomy aligned specialized lending
+        - Sustainable loan
+        - Sustainability linked loans
+        - Sustainability linked supply chain financing
+        - Sustainable leasing
+        - Sustainable car leasing
+        - Sustainability linked financial guarantees
+        - Sustainable financial guarantee
+        - Sustainable household mortgage loans
+        - Sustainable commercial real estate loans
+        - Sustainable construction credit loans (BYL)
+      type: string
+      description: SEB defined sustainable product types
+    SUST_AREA_TP:
+      enum:
+        - E
+        - S
+        - G
+      type: string
+      description: Sustainable area type
+    SUST_APPROVAL_AUTHORITY_NAME:
+      enum:
+        - RCC
+        - GESC
+        - SPC
+        - ESPSC
+        - SBRC_LC&FI
+        - SBRC_C&PC
+        - SBRC_Baltic
+      type: string
+      description: Approval authority name
+    SEB_GBF_VERSION_TP:
+      enum:
+        - GBF2022
+        - GBF20XX
+      type: string
+      description: Green bond framework version
+    SEB_GBF_FINANCING_TP:
+      enum:
+        - Refinancing
+        - New financing
+      type: string
+      description: Green bond framework financing type
+    SEB_GBF_CATEGORY_TP:
+      enum:
+        - Renewable energy
+        - Energy efficiency
+        - Pollution prevention and control
+        - Environmentally sust.management of  living natural resources and land use
+        - Terrestrial and aquatic biodiversity
+        - Clean transportation
+        - Sustainable water and wastewater management
+        - Climate change adaptation
+        - Circular economy
+        - Green buildings
+      type: string
+      description: Green bond framework category

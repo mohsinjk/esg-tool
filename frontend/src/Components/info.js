@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import TextField from "@mui/material/TextField";
-import infoData from "../store/info.json";
+import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 import "../styling/info.scss";
 import { appContext } from "../Context/appContext";
 
@@ -15,56 +15,37 @@ function Info() {
     });
   }
   return (
-    <div>
-      <div>
-        <h2>{infoData.infoHeading}</h2>
-      </div>
-      <div className="infoParagraph">
-        <p>{infoData.Paragraph}</p>
-      </div>
-      <div>
-        <TextField
-          name="name"
-          value={state.name}
-          onChange={handleChange}
-          label="Your Name"
-        />
-        <br />
-      </div>
-      <br />
-      <div>
-        <TextField
-          name="email"
-          value={state.email}
-          onChange={handleChange}
-          label="E-mail"
-        />
-        <br />
-      </div>
-      <br />
-      <div>
-        <TextField
-          name="phoneNo"
-          value={state.phoneNo}
-          onChange={handleChange}
-          label="Mobile number"
-        />
+    <Card>
+      <Card.Header as="h5">Information</Card.Header>
+      <Card.Body>
+        <Card.Text>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Name</Form.Label>
+              <Form.Control name="name"
+                value={state.name}
+                onChange={handleChange}
+                placeholder="Enter name" />
+              <Form.Text className="text-muted">
+                Your Name
+              </Form.Text>
+            </Form.Group>
 
-        <br />
-      </div>
-      <div className="infoParagraph">
-        <p>{infoData.SecondParagraph}</p>
+            <Form.Group className="mb-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control name="email"
+                value={state.email}
+                onChange={handleChange}
+                placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                Your email address
+              </Form.Text>
+            </Form.Group>
+          </Form>
+        </Card.Text>
+      </Card.Body>
+    </Card>
 
-        <p>{infoData.ThirdParagraph}</p>
-
-        <p>{infoData.FourthParagraph}</p>
-      </div>
-      <br />
-      <div className="infoParagraph">
-        <p>{infoData.FifthParagraph}</p>
-        <p>{infoData.SixthParagraph}</p>
-      </div>
-    </div>
   );
 }
 export default Info;

@@ -1,8 +1,9 @@
 import "./App.scss";
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { EditApplication } from "./Pages/editApplication";
 import { ApplicationList } from "./Pages/applicationList";
+import { Esg } from "./Pages/esg";
+
 
 function App() {
   return (
@@ -11,11 +12,14 @@ function App() {
         <Route exact path="/">
           <ApplicationList />
         </Route>
-        <Route exact path="/add">
-          <EditApplication />
+        <Route exact path="/esg">
+          <Esg />
         </Route>
-        <Route exact path="/edit/:id">
-          <EditApplication />
+        <Route exact path="/esg/:id">
+          <Esg />
+        </Route>
+        <Route exact path="/esg/:id/:authority">
+          <Esg />
         </Route>
       </Switch>
     </BrowserRouter>
