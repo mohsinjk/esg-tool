@@ -54,25 +54,25 @@ function ApplicationList() {
       );
   }, []);
   return (
-
-    <Card>
-      <Card.Header as="h2">ESG Assessment Tool</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <div style={{ height: 400, width: "100%" }}>
-            <DataGrid
-              rows={state}
-              columns={columns}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick={true}
-              onRowClick={handleRowClick}
-            />
-          </div>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-
+    <div className="d-flex justify-content-center m-3">
+      <Card style={{ width: "100%" }}>
+        <Card.Header as="h2">ESG Assessment Tool</Card.Header>
+        <Card.Body>
+          <Card.Text>
+            <div style={{ height: 800, width: "100%" }}>
+              <DataGrid
+                rows={state}
+                columns={columns}
+                pageSize={10}
+                rowsPerPageOptions={[10]}
+                disableSelectionOnClick={true}
+                onRowClick={handleRowClick}
+              />
+            </div>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 export { ApplicationList };
