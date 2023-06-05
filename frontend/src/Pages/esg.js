@@ -11,6 +11,8 @@ import { appContext } from "../Context/appContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import Rules from "../Rules/hello-world";
+
 function Esg() {
   const params = useParams();
 
