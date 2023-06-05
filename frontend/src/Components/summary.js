@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,17 +10,9 @@ import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 
 function Summary() {
-  const { state, setState } = useContext(appContext);
+  const { state } = useContext(appContext);
   const params = useParams();
   const history = useHistory();
-
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setState({
-      ...state,
-      [evt.target.name]: value,
-    });
-  }
 
   function saveApplication() {
     console.log("save application", state);

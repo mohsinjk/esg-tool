@@ -106,7 +106,7 @@ function Classification() {
                   label={i.label ?? i.value}
                   id={i.value}
                   value={i.value}
-                  checked={i.value == state.SUST_AREA_TP}
+                  checked={i.value === state.SUST_AREA_TP}
                 />
               );
             })}
@@ -123,7 +123,7 @@ function Classification() {
                   label={i.label ?? i.value}
                   id={i.value}
                   value={i.value}
-                  checked={i.value == state.SUST_APPROVAL_AUTHORITY_NAME}
+                  checked={i.value === state.SUST_APPROVAL_AUTHORITY_NAME}
                 />
               );
             })}
@@ -141,7 +141,7 @@ function Classification() {
                   label={i.label ?? i.value}
                   id={i.value}
                   value={i.value}
-                  checked={i.value == state.SEB_GBF_VERSION_TP}
+                  checked={i.value === state.SEB_GBF_VERSION_TP}
                 />
               );
             })}
@@ -158,7 +158,7 @@ function Classification() {
                   label={i.label ?? i.value}
                   id={i.value}
                   value={i.value}
-                  checked={i.value == state.SEB_GBF_FINANCING_TP}
+                  checked={i.value === state.SEB_GBF_FINANCING_TP}
                 />
               );
             })}
