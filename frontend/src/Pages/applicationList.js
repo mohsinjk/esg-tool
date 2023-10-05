@@ -55,7 +55,7 @@ function ApplicationList() {
   return (
     <div className="d-flex justify-content-center m-3">
       <Card style={{ width: "100%" }}>
-        <Card.Header as="h2">ESG Assessment Tool</Card.Header>
+        <Card.Header as="h2">ESG Assessment Tool - Proof Of Concept(POC)</Card.Header>
         <Card.Body>
           <Card.Text>
             <div style={{ height: 800, width: "100%" }}>
